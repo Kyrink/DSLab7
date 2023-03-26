@@ -1,12 +1,25 @@
 import java.util.*;
 
 public class LyricSearchEngine {
+    //Fields
     private TreeMap<String, TreeMap<String, Double>> TFMap;
+    private Song[] songsArray; //Array of all the Queen songs
     
-    public LyricSearchEngine() {
+    public LyricSearchEngine(SongCollection sc) {
         TFMap = new TreeMap<>();
+        songsArray = sc.getAllSongs();
+    }
+    
+    //This is a example method showing you how you can use the
+    //songsArray in your own method. 
+    //There are 16 songs in the array and they are arranged alphabetically by title
+    public void examlpleMethodPrint() {
+        System.out.println(songsArray[0]);
+        System.out.println(songsArray[0].getLyrics());
         
     }
+
+    
     
     public void calculateTF(String docName, String[] words) {
         TreeMap<String, Integer> wordFrequencyMap = new TreeMap<>();
@@ -34,6 +47,14 @@ public class LyricSearchEngine {
         TFMap.put(docName, docTFValues);
     }
     
-    
+    public static void main(String[] args) {
+        //make sure AllQueenSongs.txt is in the run configuration.
+        SongCollection sc = new SongCollection(args[0]);
+        LyricSearchEngine test = new LyricSearchEngine(sc);
+        
+        test.examlpleMethodPrint();
+        
+        
+    }
 
 }
