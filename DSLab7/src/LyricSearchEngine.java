@@ -10,8 +10,7 @@ public class LyricSearchEngine {
         songsArray = sc.getAllSongs();
     }
     
-    //This is a example method showing you how you can use the
-    //songsArray in your own method. 
+    //This is a example method just to test out using the songsArray.
     //There are 16 songs in the array and they are arranged alphabetically by title
     public void examlpleMethodPrint() {
         System.out.println(songsArray[0]);
