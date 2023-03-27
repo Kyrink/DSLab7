@@ -3,24 +3,25 @@ import java.io.IOException;
 
 public class LyricSearchEngine {
     //Fields
-    private TreeMap<String, TreeMap<String, Integer>> TFMap;
+    private TreeMap<String, TreeMap<String, Double>> TFMap;
+    private TreeMap<String, TreeMap<String, Integer>> SongsMap;
     
     public LyricSearchEngine() {
-        TFMap = new TreeMap<>();
+        SongsMap = new TreeMap<>();
     }
     
     //Method to construct the TreeMap of Songs TFMap
     public void processSongs(String folderPath) throws IOException {
-        TFMap = FilesReader.readDocumentsFromFolder(folderPath);
+        SongsMap = FilesReader.readDocumentsFromFolder(folderPath);
     }
     
     //Searches tree map for given song name and word 
     //then returns number of times word appeared. If 
     //the word is not found it returns 0.
     public int searchWord(String SongFileName, String word) {
-        if (TFMap.containsKey(SongFileName)) {
+        if (SongsMap.containsKey(SongFileName)) {
             word = word.toLowerCase();
-            TreeMap<String, Integer> wordCounts = TFMap.get(SongFileName);
+            TreeMap<String, Integer> wordCounts = SongsMap.get(SongFileName);
             if(wordCounts.containsKey(word)) {
                 return wordCounts.get(word);
             }
@@ -36,7 +37,7 @@ public class LyricSearchEngine {
     //Example, "I want it all" will return the number of times each word
     //appeared in the song separately. I + want + it + all
     public int searchPhrase(String SongFileName, String Phrase) {
-        if (TFMap.containsKey(SongFileName)) {
+        if (SongsMap.containsKey(SongFileName)) {
             int count = 0;
             Phrase = Phrase.toLowerCase();
             String[] phraseWords = Phrase.split("\\s+");
@@ -74,7 +75,7 @@ public class LyricSearchEngine {
             docTFValues.put(word, TF);
         }
         
-        //TFMap.put(docName, docTFValues);
+        TFMap.put(docName, docTFValues);
     }
     
     public static void main(String[] args) throws IOException {
