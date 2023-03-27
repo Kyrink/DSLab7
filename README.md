@@ -11,7 +11,7 @@ Tasks:
 This method will loop through all the files using the search method and return the idf value
 
 
-- (Ahmad) Search file method (“term”, file name): This method will return an int value of the amount of times the term given is in the file. 
+- (Ahmad) Search file method (file name, "word"): This method will return an int value of the amount of times the term given is in the file. 
 
 
 - Ranking method (“entire term”) : This method will calculate the ranking for each document using the values from TF and IDF. maybe use a while loop to go through all the files to calculate the TF
