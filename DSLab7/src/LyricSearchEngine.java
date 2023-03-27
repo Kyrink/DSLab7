@@ -51,6 +51,37 @@ public class LyricSearchEngine {
     }
     
     
+    /**
+     * Abbas: Calculate idf
+     * This is the best method i could come up with to calculate the idf value using 
+     * the FileReaderExample.java class that Kyrin provided
+     * @param documents the documents
+     * @return an idf map with the idf value for all words in all documents/txt files
+     */
+    public static TreeMap<String, Double> calculateIDF(TreeMap<String, TreeMap<String, Integer>> documents) {
+		TreeMap<String, Double> idfMap = new TreeMap<>();
+		int numDocs = documents.size();
+
+		// Iterate over all words in all documents
+		for (String documentName : documents.keySet()) {
+			TreeMap<String, Integer> wordCounts = documents.get(documentName);
+			for (String word : wordCounts.keySet()) {
+				if (!idfMap.containsKey(word)) {
+					// Calculate IDF value for word
+					int docsWithWord = 0;
+					for (String otherDocumentName : documents.keySet()) {
+						if (documents.get(otherDocumentName).containsKey(word)) {
+							docsWithWord++;
+						}
+					}
+					double idf = Math.log10((double) numDocs / docsWithWord);
+					idfMap.put(word, idf);
+				}
+			}
+		}
+
+		return idfMap;
+	}
     
     public void calculateTF(String docName, String[] words) {
         TreeMap<String, Integer> wordFrequencyMap = new TreeMap<>();
