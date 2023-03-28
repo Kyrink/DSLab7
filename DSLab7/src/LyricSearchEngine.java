@@ -171,5 +171,6 @@ public class LyricSearchEngine {
 		    double score = rankings.get(documentName);
 		    System.out.println(documentName + ": " + score);
     }
+    }
 
 }
