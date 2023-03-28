@@ -164,7 +164,12 @@ public class LyricSearchEngine {
         
         int count2 = test.searchPhrase("I Want It All.txt", "I want it all");
         System.out.println(count2);
-        
+	
+	//Testing for the ranking method
+	TreeMap<String, Double> rankings = test.rankingDocuments("Fly me to the moon");
+		for (String documentName : rankings.keySet()) {
+		    double score = rankings.get(documentName);
+		    System.out.println(documentName + ": " + score);
     }
 
 }
