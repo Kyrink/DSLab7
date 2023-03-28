@@ -108,6 +108,29 @@ public class LyricSearchEngine {
         
         TFMap.put(docName, docTFValues);
     }
+	public TreeMap<String, Double> rankingDocuments(String query) {
+    // Calculate IDF values for all terms in the collection
+    TreeMap<String, Double> idfMap = calculateIDF(SongsMap);
+
+    // Split query into terms and count their frequency
+    String[] queryTerms = query.toLowerCase().split("\\s+");
+    TreeMap<String, Integer> queryTermCounts = new TreeMap<>();
+    for (String term : queryTerms) {
+        queryTermCounts.put(term, queryTermCounts.getOrDefault(term, 0) + 1);
+    }
+
+    // Sort documents by score in descending order
+    Comparator<String> scoreComparator = new Comparator<String>() {
+        public int compare(String doc1, String doc2) {
+            return Double.compare(documentScores.get(doc2), documentScores.get(doc1));
+        }
+    };
+    TreeMap<String, Double> rankedDocuments = new TreeMap<>(scoreComparator);
+    rankedDocuments.putAll(documentScores);
+
+    return rankedDocuments;
+}
+
     
     public static void main(String[] args) throws IOException {
         LyricSearchEngine test = new LyricSearchEngine();
