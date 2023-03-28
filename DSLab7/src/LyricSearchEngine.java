@@ -108,6 +108,12 @@ public class LyricSearchEngine {
         
         TFMap.put(docName, docTFValues);
     }
+	/**Calculates the IDF values for all terms in the collection.
+         **Splits the query into terms and counts their frequency.
+         **Calculates the TF-IDF scores for all documents in the collection
+         **Sorts the documents by their score in descending order.
+         **Returns a TreeMap containing the names of the documents as keys and their corresponding scores as values
+	 */
 	public TreeMap<String, Double> rankingDocuments(String query) {
     // Calculate IDF values for all terms in the collection
     TreeMap<String, Double> idfMap = calculateIDF(SongsMap);
