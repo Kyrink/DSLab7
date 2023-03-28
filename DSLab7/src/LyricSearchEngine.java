@@ -124,6 +124,21 @@ public class LyricSearchEngine {
     for (String term : queryTerms) {
         queryTermCounts.put(term, queryTermCounts.getOrDefault(term, 0) + 1);
     }
+    // Calculate TF-IDF scores for all documents
+    TreeMap<String, Double> documentScores = new TreeMap<>();
+    for (String documentName : SongsMap.keySet()) {
+        TreeMap<String, Integer> documentTermCounts = SongsMap.get(documentName);
+        double score = 0.0;
+        for (String queryTerm : queryTermCounts.keySet()) {
+            if (documentTermCounts.containsKey(queryTerm)) {
+                double tf = (double) documentTermCounts.get(queryTerm) / documentTermCounts.size();
+                double idf = idfMap.getOrDefault(queryTerm, 0.0);
+                int queryTermCount = queryTermCounts.get(queryTerm);
+                score += tf * idf * queryTermCount;
+            }
+        }
+        documentScores.put(documentName, score);
+    }
 
     // Sort documents by score in descending order
     Comparator<String> scoreComparator = new Comparator<String>() {
