@@ -117,9 +117,7 @@ public class SearchEngine {
         }
         return wordCounts;
     }
-    
-    
-    
+
     public static void main(String[] args) throws IOException {
         String folderPath = "/Users/kyrinkalonji/git/DSLab7/DSLab7/Queen";
         SearchEngine engine = new SearchEngine(folderPath);
