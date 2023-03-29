@@ -1,0 +1,55 @@
+Search Results
+
+The following are the search results for the sample queries:
+
+Query: love and life
+
+This query returned the following documents, ranked by score:
+
+Play The Game Score: 0.03412496072718148
+Somebody To Love Score: 0.027442063733172675
+The Millionaire Waltz Score: 0.02258741571483755
+I Want To Break Free Score: 0.014380905152922962
+Brighton Rock Score: 0.007652132915070917
+These documents contain the words "love" and "life", with the highest-ranked document ("Play The Game") containing these words most frequently.
+
+Query: you know truth
+
+This query returned the following documents, ranked by score:
+
+I Want It All Score: 0.0060312031103775905
+Liar Score: 0.0034744058965322706
+Staying Power Score: 0.0034084361643196325
+Bohemian Rhapsody Score: 0.0024342048166898747
+Radio Ga Ga Score: 0.002417656179405171
+These documents contain the words "you", "know", and "truth", with the highest-ranked document ("I Want It All") containing these words most frequently.
+
+Query: little champion
+
+This query returned the following documents, ranked by score:
+
+Brighton Rock Score: 0.012099400678321104
+The Millionaire Waltz Score: 0.007831782609610946
+Bohemian Rhapsody Score: 0.004084770714177138
+Staying Power Score: 0.0015985758807591963
+Somebody To Love Score: 0.0013506683912296953
+These documents contain the words "little" and "champion", with the highest-ranked document ("Brighton Rock") containing these words most frequently.
+
+Query: Mama
+
+This query returned the following documents, ranked by score:
+
+Bohemian Rhapsody Score: 0.017039433716829123
+Liar Score: 0.008739580519276874
+These documents contain the word "Mama", with the highest-ranked document ("Bohemian Rhapsody") containing this word most frequently.
+
+Query: happy music bring power
+
+This query returned the following documents, ranked by score:
+
+Staying Power Score: 0.05429971440774344
+The Millionaire Waltz Score: 0.01827199568111991
+Radio Ga Ga Score: 0.012162828107635604
+Brighton Rock Score: 0.008706571592051047
+Another One Bites The Dust Score: 0.004226736790327107
+These documents contain the words "happy", "music", "bring", and "power", with the highest-ranked document ("Staying Power") containing these words most frequently.

@@ -1,0 +1,49 @@
+
+Search Engine
+
+This program is a simple search engine that allows users to search for documents based on keywords. It uses the TF-IDF algorithm to calculate a score for each document, which is then used to rank the documents in the search results. The program takes a folder path as input and reads all text files in that folder to create an index of documents.
+
+Dependencies
+
+This program requires the following dependencies:
+
+Java 8 or higher
+Usage
+
+To use this program, follow these steps:
+
+Clone or download the source code from the repository.
+Open a command prompt or terminal window and navigate to the directory containing the source code.
+Compile the program by running the following command: javac SearchEngine.java
+Run the program by running the following command: java SearchEngine <folder_path>, where <folder_path> is the path to the directory containing the text files to be indexed.
+The program will output the search results for several sample queries.
+How it Works
+
+When the program is run, it reads all text files in the specified directory and creates an index of documents. The index is stored as a nested TreeMap, where the outer map keys are document names and the inner maps keys are words in the document. The innermost maps contain the TF-IDF scores for each word in the document.
+
+To search for documents, the program takes a query string as input and calculates a score for each document based on the TF-IDF scores for the words in the query. The program then returns a list of the top 5 documents ranked by score.
+
+The TF-IDF score for a word is calculated as follows:
+
+TF (term frequency) = (number of times the word appears in the document) / (total number of words in the document)
+IDF (inverse document frequency) = log10(total number of documents / number of documents containing the word)
+TF-IDF = TF * IDF
+The score for a document is the sum of the TF-IDF scores for all words in the query that appear in the document.
+
+Example
+
+Suppose we have a folder called my_documents containing several text files. To index these documents and search for documents containing the words "java" and "programming", we can run the following command:
+
+Copy code
+java SearchEngine my_documents
+The program will read all text files in the my_documents folder, create an index of documents, and then output the search results for the queries "java programming". The output might look something like this:
+
+makefile
+Copy code
+Query: java programming
+Document: document1.txt Score: 0.032
+Document: document2.txt Score: 0.024
+Document: document3.txt Score: 0.018
+Document: document4.txt Score: 0.012
+Document: document5.txt Score: 0.006
+This output indicates that document1.txt has the highest score and is the best match for the query. The scores for the other documents are also listed, with the highest scores at the top of the list.
