@@ -140,7 +140,7 @@ public class SearchEngine {
                         rankingScore += tfIdf * getWordCounts(query).get(word);
                     }
                 }
-                System.out.println("Document: " + result + " Score: " + rankingScore);
+                System.out.println("Document: " + result + " Ranking Score: " + rankingScore);
             }
             System.out.println();
         }
